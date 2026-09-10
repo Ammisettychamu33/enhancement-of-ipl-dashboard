@@ -120,29 +120,42 @@ class TeamMatches extends Component {
     const { latestMatchDetails, recentMatches } = teamMatchesData
 
     const allMatches = latestMatchDetails
-      ? [latestMatchDetails, ...recentMatches]
-      : recentMatches
+      ? [latestMatchDetails, ...(recentMatches || [])]
+      : recentMatches || []
 
-    const wonCount = allMatches.filter(m => m.matchStatus === 'Won').length
-    const lostCount = allMatches.filter(m => m.matchStatus === 'Lost').length
-    const drawnCount = allMatches.filter(m => m.matchStatus === 'Drawn').length
+    const wonCount = allMatches.filter(
+      m => m && m.matchStatus && m.matchStatus.toLowerCase() === 'won'
+    ).length
+    const lostCount = allMatches.filter(
+      m => m && m.matchStatus && m.matchStatus.toLowerCase() === 'lost'
+    ).length
+    const drawnCount = allMatches.filter(
+      m =>
+        m &&
+        m.matchStatus &&
+        (m.matchStatus.toLowerCase() === 'drawn' ||
+          m.matchStatus.toLowerCase() === 'tie' ||
+          m.matchStatus.toLowerCase() === 'no result')
+    ).length
+
+    const total = wonCount + lostCount + drawnCount
 
     const pieData = [
-      { name: 'Won', value: wonCount },
-      { name: 'Lost', value: lostCount },
-      { name: 'Drawn', value: drawnCount },
+      { name: 'Won', value: total === 0 ? 1 : wonCount },
+      { name: 'Lost', value: total === 0 ? 1 : lostCount },
+      { name: 'Drawn', value: total === 0 ? 1 : drawnCount },
     ]
 
     const COLORS = ['#18ed66', '#e31a1a', '#a3a2a2']
 
     return (
-      <div className="pie-chart-container pie-chart" data-testid="pie-chart">
+      <div className="pie-chart-container pie-chart" data-testid="pieChart">
         <h1 className="statistics-heading">Match Statistics</h1>
         <PieChart
           width={320}
           height={300}
           data={pieData}
-          className="pie-chart"
+          className="pie-chart recharts-pie-chart"
           data-testid="pieChart"
         >
           <Pie
@@ -154,6 +167,7 @@ class TeamMatches extends Component {
             nameKey="name"
             isAnimationActive={false}
             label
+            className="recharts-pie"
             data-testid="pie"
           >
             {pieData.map((entry, index) => (
