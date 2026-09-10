@@ -138,33 +138,31 @@ class TeamMatches extends Component {
     return (
       <div className="pie-chart-container pie-chart" data-testid="pie-chart">
         <h1 className="statistics-heading">Match Statistics</h1>
-        <ResponsiveContainer width="100%" height={300}>
-          <PieChart
-            width={320}
-            height={300}
+        <PieChart
+          width={320}
+          height={300}
+          data={pieData}
+          className="pie-chart"
+          data-testid="pieChart"
+        >
+          <Pie
             data={pieData}
-            className="pie-chart"
-            data-testid="pieChart"
+            cx="50%"
+            cy="50%"
+            outerRadius={80}
+            dataKey="value"
+            nameKey="name"
+            isAnimationActive={false}
+            label
+            data-testid="pie"
           >
-            <Pie
-              data={pieData}
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              dataKey="value"
-              nameKey="name"
-              isAnimationActive={false}
-              label
-              data-testid="pie"
-            >
-              {pieData.map((entry, index) => (
-                <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} name={entry.name} />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend verticalAlign="bottom" height={36} />
-          </PieChart>
-        </ResponsiveContainer>
+            {pieData.map((entry, index) => (
+              <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} name={entry.name} />
+            ))}
+          </Pie>
+          <Tooltip />
+          <Legend verticalAlign="bottom" height={36} />
+        </PieChart>
       </div>
     )
   }
