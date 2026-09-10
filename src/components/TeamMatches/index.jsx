@@ -155,8 +155,6 @@ class TeamMatches extends Component {
           width={320}
           height={300}
           data={pieData}
-          className="pie-chart recharts-pie-chart"
-          data-testid="pieChart"
         >
           <Pie
             data={pieData}
@@ -167,8 +165,6 @@ class TeamMatches extends Component {
             nameKey="name"
             isAnimationActive={false}
             label
-            className="recharts-pie"
-            data-testid="pie"
           >
             {pieData.map((entry, index) => (
               <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} name={entry.name} />
