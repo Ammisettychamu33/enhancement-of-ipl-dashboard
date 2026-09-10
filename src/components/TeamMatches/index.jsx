@@ -136,9 +136,9 @@ class TeamMatches extends Component {
     const COLORS = ['#18ed66', '#e31a1a', '#a3a2a2']
 
     return (
-      <div className="pie-chart-container">
+      <div className="pie-chart-container pie-chart" data-testid="pieChart">
         <h1 className="statistics-heading">Match Statistics</h1>
-        <PieChart width={320} height={300}>
+        <PieChart width={320} height={300} className="pie-chart" data-testid="pieChart">
           <Pie
             data={pieData}
             cx="50%"
@@ -148,6 +148,7 @@ class TeamMatches extends Component {
             nameKey="name"
             isAnimationActive={false}
             label
+            data-testid="pie"
           >
             {pieData.map((entry, index) => (
               <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} name={entry.name} />
