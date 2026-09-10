@@ -136,9 +136,15 @@ class TeamMatches extends Component {
     const COLORS = ['#18ed66', '#e31a1a', '#a3a2a2']
 
     return (
-      <div className="pie-chart-container pie-chart" data-testid="pieChart">
+      <div className="pie-chart-container pie-chart" data-testid="pie-chart">
         <h1 className="statistics-heading">Match Statistics</h1>
-        <PieChart width={320} height={300} className="pie-chart" data-testid="pieChart">
+        <PieChart
+          width={320}
+          height={300}
+          data={pieData}
+          className="pie-chart"
+          data-testid="pieChart"
+        >
           <Pie
             data={pieData}
             cx="50%"
