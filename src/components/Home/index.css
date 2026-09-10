@@ -1,0 +1,64 @@
+.home-route-container {
+  min-height: 100vh;
+  background-color: var(--bg-home);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.home-content-container {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.ipl-logo {
+  width: 48px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.home-heading {
+  font-family: var(--font-family);
+  font-size: 2.8rem;
+  color: #ffffff;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.teams-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .home-heading {
+    font-size: 2rem;
+  }
+  .ipl-logo {
+    width: 36px;
+    height: 48px;
+  }
+  .teams-list {
+    grid-template-columns: 1fr;
+  }
+}

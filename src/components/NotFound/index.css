@@ -1,0 +1,13 @@
+.not-found-route-container {
+  min-height: 100vh;
+  background-color: var(--bg-home);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.not-found-heading {
+  font-family: var(--font-family);
+  font-size: 2.5rem;
+  color: #ffffff;
+}

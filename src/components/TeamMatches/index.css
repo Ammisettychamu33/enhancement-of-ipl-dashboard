@@ -1,0 +1,123 @@
+.team-matches-route-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+/* Team Specific Dynamic Background Gradients */
+.team-matches-route-container.rcb {
+  background: linear-gradient(to bottom, #a4261d, #1e1e30);
+}
+
+.team-matches-route-container.kkr {
+  background: linear-gradient(to bottom, #5755a5, #1e1e30);
+}
+
+.team-matches-route-container.kxp {
+  background: linear-gradient(to bottom, #d14343, #1e1e30);
+}
+
+.team-matches-route-container.csk {
+  background: linear-gradient(to bottom, #f7c948, #1e1e30);
+}
+
+.team-matches-route-container.rr {
+  background: linear-gradient(to bottom, #da237b, #1e1e30);
+}
+
+.team-matches-route-container.mi {
+  background: linear-gradient(to bottom, #13418b, #1e1e30);
+}
+
+.team-matches-route-container.srh {
+  background: linear-gradient(to bottom, #f26d22, #1e1e30);
+}
+
+.team-matches-route-container.dc {
+  background: linear-gradient(to bottom, #4f5db0, #1e1e30);
+}
+
+.team-matches-content {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back-btn-container {
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.back-link {
+  text-decoration: none;
+}
+
+.back-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.team-banner {
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin-bottom: 30px;
+  object-fit: cover;
+}
+
+.pie-chart-container {
+  background-color: #0f0e0e;
+  border-radius: var(--radius-md);
+  padding: 24px;
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statistics-heading {
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.recent-matches-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .team-matches-route-container {
+    padding: 20px 12px;
+  }
+  .recent-matches-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,116 @@
+.latest-match-card-container {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.latest-match-heading {
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.latest-match-card {
+  background-color: #0f0e0e;
+  border-radius: var(--radius-md);
+  padding: 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.latest-match-details-logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.latest-match-details-main {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.latest-match-team-name {
+  font-family: var(--font-family);
+  font-size: 2.2rem;
+  color: #ffffff;
+}
+
+.latest-match-date {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.latest-match-venue {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.latest-match-result {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.latest-match-team-logo {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin: 0 24px;
+}
+
+.separator {
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 16px 0;
+}
+
+.latest-match-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: right;
+  min-width: 200px;
+}
+
+.info-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.info-value {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .latest-match-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+  .latest-match-details-logo-container {
+    width: 100%;
+  }
+  .latest-match-team-name {
+    font-size: 1.6rem;
+  }
+  .latest-match-team-logo {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+  }
+  .separator {
+    display: block;
+    width: 100%;
+  }
+  .latest-match-details-info {
+    text-align: left;
+    width: 100%;
+  }
+}

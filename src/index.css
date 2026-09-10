@@ -1,0 +1,38 @@
+:root {
+  --bg-home: #1e1e30;
+  --font-family: 'Bree Serif', serif;
+  --font-body: 'Roboto', sans-serif;
+  --text-white: #ffffff;
+  --text-muted: #a3a2a2;
+  --color-won: #18ed66;
+  --color-lost: #e31a1a;
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-home);
+  color: var(--text-white);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
