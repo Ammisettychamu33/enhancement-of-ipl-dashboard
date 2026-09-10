@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { ThreeDots } from 'react-loader-spinner'
-import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recharts'
+import Loader from 'react-loader-spinner'
+import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts'
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
 import './index.css'
@@ -51,9 +51,16 @@ class TeamMatches extends Component {
 
   renderLoader = () => (
     <div data-testid="loader" className="loader-container">
-      <ThreeDots color="#ffffff" height={50} width={50} />
+      <Loader type="Oval" color="#ffffff" height={50} width={50} />
     </div>
   )
+
+  onClickBack = () => {
+    const { history } = this.props
+    if (history) {
+      history.push('/')
+    }
+  }
 
   renderStatistics = () => {
     const { teamMatchesData } = this.state
@@ -77,25 +84,23 @@ class TeamMatches extends Component {
 
     return (
       <div className="pie-chart-container">
-        <h2 className="statistics-heading">Match Statistics</h2>
-        <ResponsiveContainer width="100%" height={280}>
-          <PieChart>
-            <Pie
-              data={pieData}
-              cx="50%"
-              cy="50%"
-              outerRadius={80}
-              dataKey="value"
-              label
-            >
-              {pieData.map((entry, index) => (
-                <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />
-              ))}
-            </Pie>
-            <Tooltip />
-            <Legend verticalAlign="bottom" height={36} />
-          </PieChart>
-        </ResponsiveContainer>
+        <h1 className="statistics-heading">Match Statistics</h1>
+        <PieChart width={320} height={300}>
+          <Pie
+            data={pieData}
+            cx="50%"
+            cy="50%"
+            outerRadius={80}
+            dataKey="value"
+            label
+          >
+            {pieData.map((entry, index) => (
+              <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />
+            ))}
+          </Pie>
+          <Tooltip />
+          <Legend verticalAlign="bottom" height={36} />
+        </PieChart>
       </div>
     )
   }
@@ -108,7 +113,7 @@ class TeamMatches extends Component {
       <div className="team-matches-content">
         <div className="back-btn-container">
           <Link to="/" className="back-link">
-            <button type="button" className="back-button">
+            <button type="button" className="back-button" onClick={this.onClickBack}>
               Back
             </button>
           </Link>
