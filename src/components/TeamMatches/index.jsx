@@ -6,6 +6,19 @@ import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
 import './index.css'
 
+class DummyResizeObserver {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+
+if (typeof window !== 'undefined' && !window.ResizeObserver) {
+  window.ResizeObserver = DummyResizeObserver
+}
+if (typeof global !== 'undefined' && !global.ResizeObserver) {
+  global.ResizeObserver = DummyResizeObserver
+}
+
 class TeamMatches extends Component {
   state = {
     teamMatchesData: {},
