@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
-import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts'
+import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer } from 'recharts'
 import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
 import './index.css'
@@ -85,22 +85,25 @@ class TeamMatches extends Component {
     return (
       <div className="pie-chart-container">
         <h1 className="statistics-heading">Match Statistics</h1>
-        <PieChart width={320} height={300}>
-          <Pie
-            data={pieData}
-            cx="50%"
-            cy="50%"
-            outerRadius={80}
-            dataKey="value"
-            label
-          >
-            {pieData.map((entry, index) => (
-              <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-          <Legend verticalAlign="bottom" height={36} />
-        </PieChart>
+        <ResponsiveContainer width="100%" height={300}>
+          <PieChart>
+            <Pie
+              data={pieData}
+              cx="50%"
+              cy="50%"
+              outerRadius={80}
+              dataKey="value"
+              isAnimationActive={false}
+              label
+            >
+              {pieData.map((entry, index) => (
+                <Cell key={`cell-${entry.name}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend verticalAlign="bottom" height={36} />
+          </PieChart>
+        </ResponsiveContainer>
       </div>
     )
   }
